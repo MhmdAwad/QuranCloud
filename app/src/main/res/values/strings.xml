@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">QuranCloud</string>
+    <string name="readerImage">Reader Image</string>
+    <string name="suraImage">Sura Image</string>
+    <string name="backButton">back Button</string>
+    <string name="playOrPauseButton">play Or Pause Button</string>
+    <string name="forwardButton">Forward Button</string>
+</resources>
