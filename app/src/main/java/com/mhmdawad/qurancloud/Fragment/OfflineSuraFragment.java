@@ -28,6 +28,7 @@ import java.util.List;
 
 public class OfflineSuraFragment extends Fragment {
     RecyclerView recyclerView;
+    public static FavoriteSurasAdapter adapter;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -49,7 +50,7 @@ public class OfflineSuraFragment extends Fragment {
         ListOfMp3FromStorage.scanDeviceForMp3Files();
         List<Mp3File> favoriteList = ListOfMp3FromStorage.getMp3Files() ;
 
-        FavoriteSurasAdapter adapter = new FavoriteSurasAdapter(favoriteList);
+        adapter = new FavoriteSurasAdapter(favoriteList);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(),
                 LinearLayoutManager.VERTICAL, false));

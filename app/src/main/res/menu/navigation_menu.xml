@@ -9,8 +9,6 @@
         android:icon="@drawable/ic_favorite_black_24dp"
         android:title="Favorite"
         />
-    <item android:id="@+id/search"
-        android:icon="@drawable/ic_search_white_24dp"
-        android:title="Search"
-        />
+
+
 </menu>

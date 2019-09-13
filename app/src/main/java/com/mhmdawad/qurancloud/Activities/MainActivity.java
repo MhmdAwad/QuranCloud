@@ -114,6 +114,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onQueryTextChange(String newText) {
                 OnlineSuraFragment.adapter.getFilter().filter(newText);
+                OfflineSuraFragment.adapter.getFilter().filter(newText);
                 return false;
             }
         });

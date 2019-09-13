@@ -5,20 +5,28 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 
 import com.mhmdawad.qurancloud.MediaPlayer.Mp3File;
 import com.mhmdawad.qurancloud.R;
+import com.mhmdawad.qurancloud.Retrofit.Objects.Reciter;
 import com.mhmdawad.qurancloud.database.FavoriteEntity;
+
+import java.util.ArrayList;
 import java.util.List;
 
-public class FavoriteSurasAdapter extends RecyclerView.Adapter<FavoriteSurasAdapter.MainAdapter> {
+public class FavoriteSurasAdapter extends RecyclerView.Adapter<FavoriteSurasAdapter.MainAdapter>
+implements Filterable {
 
     private List<Mp3File> favoriteList;
+    private List<Mp3File> favoriteListFull;
     private ClickListener mClickListener;
 
     public FavoriteSurasAdapter(List<Mp3File> favoriteEntityList) {
         favoriteList = favoriteEntityList;
+        this.favoriteListFull = new ArrayList<>(favoriteList);
 
     }
 
@@ -69,4 +77,38 @@ public class FavoriteSurasAdapter extends RecyclerView.Adapter<FavoriteSurasAdap
      public interface ClickListener{
         void itemOnClickListener(int pos,View v);
      }
+    private Filter filter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            ArrayList<Mp3File> filteredRciters = new ArrayList<>();
+
+            if(constraint == null || constraint.length() <= 0 ){
+                filteredRciters.addAll(favoriteListFull);
+            }else{
+                String searched = constraint.toString().toLowerCase().trim();
+
+                for (Mp3File item : favoriteListFull){
+                    if(item.getReaderName().toLowerCase().contains(searched)){
+                        filteredRciters.add(item);
+                    }
+                }
+            }
+
+            FilterResults results = new FilterResults();
+            results.values  = filteredRciters;
+
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+            favoriteList.clear();
+            favoriteList.addAll(((List)results.values));
+            notifyDataSetChanged();
+        }
+    };
+    @Override
+    public Filter getFilter() {
+        return filter;
+    }
 }

@@ -38,6 +38,7 @@ public class MediaPlayerActivity extends AppCompatActivity {
     ImageButton loveButton;
     Intent intent;
     int currentPosition;
+    ImageButton downArrow;
     //private FavoriteDatabase favDB;
     private static String readerName;
     private static String suraName;
@@ -76,6 +77,7 @@ public class MediaPlayerActivity extends AppCompatActivity {
         backButton = findViewById(R.id.backMediaPlayer);
         listButton = findViewById(R.id.listMediaPlayer);
         loveButton = findViewById(R.id.loveMediaPlayer);
+        downArrow = findViewById(R.id.downArrow);
         changeSuraName();
         initializeViews();
         //favDB = FavoriteDatabase.getInstance(MediaPlayerActivity.this);
@@ -111,7 +113,13 @@ public class MediaPlayerActivity extends AppCompatActivity {
         listButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                onBackPressed();
+            }
+        });
+        downArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
             }
         });
         loveButton.setOnClickListener(new View.OnClickListener() {
