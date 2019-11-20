@@ -24,6 +24,7 @@ import android.support.v7.widget.SearchView;
 
 public class MainActivity extends AppCompatActivity {
 
+    private boolean isOnlineFragmentOpen = true;
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
@@ -32,9 +33,11 @@ public class MainActivity extends AppCompatActivity {
                     switch (menuItem.getItemId()){
                         case R.id.home:
                             selectedFragment = new OnlineSuraFragment();
+                            isOnlineFragmentOpen = true;
                             break;
                         case R.id.favorite:
                             selectedFragment = new OfflineSuraFragment();
+                            isOnlineFragmentOpen = false;
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,
                             selectedFragment).commit();
@@ -113,8 +116,11 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                OnlineSuraFragment.adapter.getFilter().filter(newText);
-                OfflineSuraFragment.adapter.getFilter().filter(newText);
+                if(isOnlineFragmentOpen) {
+                    OnlineSuraFragment.adapter.getFilter().filter(newText);
+                }else {
+                    OfflineSuraFragment.adapter.getFilter().filter(newText);
+                }
                 return false;
             }
         });
