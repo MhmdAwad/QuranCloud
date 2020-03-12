@@ -7,6 +7,8 @@ This project get all famous reciters and save any sura in device to run it in of
 3/ Services
 4/ Notification
 5/ Fragments
+6/ Butter Knife
+7/ Storage
 
 # Images
 ![alt text](https://i.ibb.co/tZvt4VN/Screenshot-20190913-134553.png)
