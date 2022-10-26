@@ -7,7 +7,6 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
-import android.support.v4.app.NotificationCompat;
 import android.widget.RemoteViews;
 
 import com.mhmdawad.qurancloud.Activities.MediaPlayerActivity;
@@ -18,6 +17,8 @@ import static com.mhmdawad.qurancloud.Notification.NotificationButtonClick.backB
 import static com.mhmdawad.qurancloud.Notification.NotificationButtonClick.closeButton;
 import static com.mhmdawad.qurancloud.Notification.NotificationButtonClick.forwardButton;
 import static com.mhmdawad.qurancloud.Notification.NotificationButtonClick.playButton;
+
+import androidx.core.app.NotificationCompat;
 
 public class QuranNotification {
 

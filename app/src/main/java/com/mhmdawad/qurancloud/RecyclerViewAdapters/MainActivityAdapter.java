@@ -1,13 +1,15 @@
 package com.mhmdawad.qurancloud.RecyclerViewAdapters;
 
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.mhmdawad.qurancloud.R;
 import com.mhmdawad.qurancloud.Retrofit.Objects.Reciter;
 import java.util.ArrayList;
@@ -29,16 +31,16 @@ implements Filterable {
 
     @NonNull
     @Override
-    public MainAdapter onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.main_recycler_view_items,
-                viewGroup, false);
+    public MainAdapter onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.main_recycler_view_items,
+                parent, false);
         return new MainAdapter(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MainAdapter mainAdapter, int i) {
-        mainAdapter.reciterName.setText(reciters.get(i).getName());
-        mainAdapter.rewayaName.setText(reciters.get(i).getRewaya());
+    public void onBindViewHolder(@NonNull MainAdapter holder, int position) {
+        holder.reciterName.setText(reciters.get(position).getName());
+        holder.rewayaName.setText(reciters.get(position).getRewaya());
     }
 
     @Override

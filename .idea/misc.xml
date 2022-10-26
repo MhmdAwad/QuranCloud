@@ -1,6 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/mustafaEgypt/QuranCloud/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.233" />
+        <entry key="..\:/mustafaEgypt/QuranCloud/app/src/main/res/drawable/ic_back.xml" value="0.124" />
+        <entry key="..\:/mustafaEgypt/QuranCloud/app/src/main/res/drawable/ic_back_white.xml" value="0.124" />
+        <entry key="..\:/mustafaEgypt/QuranCloud/app/src/main/res/drawable/ic_close_button.xml" value="0.124" />
+        <entry key="..\:/mustafaEgypt/QuranCloud/app/src/main/res/drawable/ic_compact_disc.xml" value="0.233" />
+        <entry key="..\:/mustafaEgypt/QuranCloud/app/src/main/res/drawable/ic_favorite_black_24dp.xml" value="0.233" />
+        <entry key="..\:/mustafaEgypt/QuranCloud/app/src/main/res/drawable/ic_forward.xml" value="0.233" />
+        <entry key="..\:/mustafaEgypt/QuranCloud/app/src/main/res/drawable/ic_forward_white.xml" value="0.233" />
+        <entry key="..\:/mustafaEgypt/QuranCloud/app/src/main/res/drawable/ic_heart_red.xml" value="0.233" />
+        <entry key="..\:/mustafaEgypt/QuranCloud/app/src/main/res/drawable/ic_heart_white.xml" value="0.233" />
+        <entry key="..\:/mustafaEgypt/QuranCloud/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.1035" />
+        <entry key="..\:/mustafaEgypt/QuranCloud/app/src/main/res/drawable/ic_launcher_background.xml" value="0.233" />
+        <entry key="..\:/mustafaEgypt/QuranCloud/app/src/main/res/drawable/ic_list_white.xml" value="0.233" />
+        <entry key="..\:/mustafaEgypt/QuranCloud/app/src/main/res/drawable/ic_pause_button.xml" value="0.233" />
+        <entry key="..\:/mustafaEgypt/QuranCloud/app/src/main/res/drawable/ic_pause_button_white.xml" value="0.233" />
+        <entry key="..\:/mustafaEgypt/QuranCloud/app/src/main/res/drawable/ic_play_button.xml" value="0.233" />
+        <entry key="..\:/mustafaEgypt/QuranCloud/app/src/main/res/drawable/ic_play_button_white.xml" value="0.233" />
+        <entry key="..\:/mustafaEgypt/QuranCloud/app/src/main/res/drawable/ic_search_white_24dp.xml" value="0.233" />
+        <entry key="..\:/mustafaEgypt/QuranCloud/app/src/main/res/drawable/man.xml" value="0.233" />
+        <entry key="..\:/mustafaEgypt/QuranCloud/app/src/main/res/drawable/white_scrubber_control.xml" value="0.233" />
+        <entry key="..\:/mustafaEgypt/QuranCloud/app/src/main/res/layout/activity_favorite_suras.xml" value="0.22826086956521738" />
+        <entry key="..\:/mustafaEgypt/QuranCloud/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
+        <entry key="..\:/mustafaEgypt/QuranCloud/app/src/main/res/layout/activity_media_player.xml" value="0.11302083333333333" />
+        <entry key="..\:/mustafaEgypt/QuranCloud/app/src/main/res/layout/custom_large_notification.xml" value="0.22826086956521738" />
+        <entry key="..\:/mustafaEgypt/QuranCloud/app/src/main/res/layout/custom_small_notification.xml" value="0.22826086956521738" />
+        <entry key="..\:/mustafaEgypt/QuranCloud/app/src/main/res/layout/main_recycler_view_items.xml" value="0.22826086956521738" />
+        <entry key="..\:/mustafaEgypt/QuranCloud/app/src/main/res/layout/online_sura.xml" value="0.22826086956521738" />
+        <entry key="..\:/mustafaEgypt/QuranCloud/app/src/main/res/layout/quran_reader_recycler_items.xml" value="0.22826086956521738" />
+        <entry key="..\:/mustafaEgypt/QuranCloud/app/src/main/res/layout/reader_details.xml" value="0.22826086956521738" />
+        <entry key="..\:/mustafaEgypt/QuranCloud/app/src/main/res/menu/navigation_menu.xml" value="0.1" />
+        <entry key="..\:/mustafaEgypt/QuranCloud/app/src/main/res/menu/search_menu.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
