@@ -6,12 +6,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-
-    <FrameLayout
-        android:id="@+id/fragmentContainer"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/bottomNavigation" />
+        android:layout_above="@id/bottomNavigation"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/quran_cloud_main_nav" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigation"

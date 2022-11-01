@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/quran_cloud_main_nav"
+    app:startDestination="@id/home">
+
+    <fragment
+        android:id="@+id/home"
+        android:name="com.mhmdawad.qurancloud.Fragment.OnlineSuraFragment"
+        android:label=""
+        tools:layout="@layout/online_sura" />
+    <fragment
+        android:id="@+id/favorite"
+        android:name="com.mhmdawad.qurancloud.Fragment.OfflineSuraFragment"
+        android:label="OfflineSuraFragment"
+        tools:layout="@layout/activity_favorite_suras"/>
+</navigation>

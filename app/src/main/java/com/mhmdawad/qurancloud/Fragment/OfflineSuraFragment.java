@@ -16,7 +16,6 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.mhmdawad.qurancloud.Activities.FavoriteSuras;
 import com.mhmdawad.qurancloud.Activities.ReaderDetails;
 import com.mhmdawad.qurancloud.MediaPlayer.ListOfMp3FromStorage;
 import com.mhmdawad.qurancloud.MediaPlayer.Mp3File;
@@ -34,7 +33,7 @@ public class OfflineSuraFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_favorite_suras,container,false);
          recyclerView = view.findViewById(R.id.favRecyclerView);
-        setupRecyclerView();
+//        setupRecyclerView();
 
 //        FragmentTransaction ft = getFragmentManager().beginTransaction();
 //        if (Build.VERSION.SDK_INT >= 26) {
