@@ -1,9 +1,9 @@
 package com.mhmdawad.qurancloud.Fragment;
 
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
 
 public class FragmentAdapter extends FragmentPagerAdapter {
 
@@ -15,8 +15,9 @@ public class FragmentAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int i) {
         if (i == 0) {
             return new OnlineSuraFragment();
-        } else{
-            return new OfflineSuraFragment();}
+        } else {
+            return new OfflineSuraFragment();
+        }
     }
 
     @Override
@@ -27,9 +28,9 @@ public class FragmentAdapter extends FragmentPagerAdapter {
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {
-        if(position == 0){
+        if (position == 0) {
             return "Online";
-        }else
+        } else
             return "Offline";
     }
 }

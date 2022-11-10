@@ -1,12 +1,14 @@
 package com.mhmdawad.qurancloud.RecyclerViewAdapters;
 
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.mhmdawad.qurancloud.R;
 import java.util.ArrayList;
 
@@ -21,9 +23,9 @@ public class SurasAdapter extends RecyclerView.Adapter<SurasAdapter.MainAdapter>
 
     @NonNull
     @Override
-    public MainAdapter onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.quran_reader_recycler_items
-                , viewGroup, false);
+    public MainAdapter onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.quran_reader_recycler_items
+                , parent, false);
         return new MainAdapter(view);
     }
 

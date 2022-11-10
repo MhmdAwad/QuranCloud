@@ -2,18 +2,20 @@ package com.mhmdawad.qurancloud.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.mhmdawad.qurancloud.Activities.ReaderDetails;
 import com.mhmdawad.qurancloud.R;
 import com.mhmdawad.qurancloud.RecyclerViewAdapters.MainActivityAdapter;
@@ -43,18 +45,20 @@ public class OnlineSuraFragment extends Fragment {
         View view = inflater.inflate(R.layout.online_sura, container, false);
         progressBar = view.findViewById(R.id.progressBar);
         recyclerView = view.findViewById(R.id.mainRecyclerView);
+        return view;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         if(reciters == null){
             fetchAPIDate();
         }else{
             setupRecyclerView();
         }
-
-        return view;
     }
 
     private void setupRecyclerView() {
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(),
-                LinearLayoutManager.VERTICAL, false));
         recyclerView.addItemDecoration(
                 new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL));
         recyclerView.setAdapter(adapter);

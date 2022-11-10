@@ -3,13 +3,14 @@ package com.mhmdawad.qurancloud.Activities;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.mhmdawad.qurancloud.MediaPlayer.ListOfMp3FromStorage;
 import com.mhmdawad.qurancloud.MediaPlayer.Mp3File;

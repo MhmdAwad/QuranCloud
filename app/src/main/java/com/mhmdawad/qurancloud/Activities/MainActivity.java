@@ -4,23 +4,26 @@ import android.Manifest;
 import android.app.DownloadManager;
 import android.content.Context;
 import android.content.pm.PackageManager;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import com.mhmdawad.qurancloud.Fragment.FragmentAdapter;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.mhmdawad.qurancloud.Fragment.OfflineSuraFragment;
 import com.mhmdawad.qurancloud.Fragment.OnlineSuraFragment;
 import com.mhmdawad.qurancloud.MediaPlayer.QuranMediaPlayer;
 import com.mhmdawad.qurancloud.R;
-import android.support.design.widget.TabLayout;
+
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.support.v7.widget.SearchView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
+import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.ui.NavigationUI;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                     Fragment selectedFragment = null;
-                    switch (menuItem.getItemId()){
+                    switch (menuItem.getItemId()) {
                         case R.id.home:
                             selectedFragment = new OnlineSuraFragment();
                             isOnlineFragmentOpen = true;
@@ -39,11 +42,12 @@ public class MainActivity extends AppCompatActivity {
                             selectedFragment = new OfflineSuraFragment();
                             isOnlineFragmentOpen = false;
                     }
-                    getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView,
                             selectedFragment).commit();
                     return true;
                 }
             };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,24 +60,27 @@ public class MainActivity extends AppCompatActivity {
 //        viewPager.setAdapter(fragmentAdapter);
 //        tableLayout.setupWithViewPager(viewPager);
 
+        NavHostFragment navHostFragment=(NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.fragmentContainerView);
+        NavController navController=navHostFragment.getNavController();
         BottomNavigationView bottomNav = findViewById(R.id.bottomNavigation);
-        bottomNav.setOnNavigationItemSelectedListener(navListener);
+        NavigationUI.setupWithNavController(bottomNav,navController);
+//        bottomNav.setOnNavigationItemSelectedListener(navListener);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,
-                new OnlineSuraFragment()).commit();
-        checkPermissions();
+//        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView,
+//                new OnlineSuraFragment()).commit();
+//        checkPermissions();
         //createFolder();
     }
 
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (!(grantResults.length > 0
-                && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
-            checkPermissions();
-        }
-    }
+//    @Override
+//    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+//        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+//        if (!(grantResults.length > 0
+//                && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+//            checkPermissions();
+//        }
+//    }
 
     private void checkPermissions() {
         if ((ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
@@ -85,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
                     MainActivity.this
                     , new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,
                             Manifest.permission.READ_EXTERNAL_STORAGE
-                            }
+                    }
                     , 1);
         }
     }
@@ -94,8 +101,8 @@ public class MainActivity extends AppCompatActivity {
         DownloadManager.Request request = new DownloadManager.Request(QuranMediaPlayer.getSuraUri());
         request.allowScanningByMediaScanner();
         request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_HIDDEN);
-        String nameOfFile = MediaPlayerActivity.getReaderName()+","+MediaPlayerActivity.getSuraName();
-        request.setDestinationInExternalFilesDir(context,"",nameOfFile+".mp3");
+        String nameOfFile = MediaPlayerActivity.getReaderName() + "," + MediaPlayerActivity.getSuraName();
+        request.setDestinationInExternalFilesDir(context, "", nameOfFile + ".mp3");
 
         DownloadManager manager = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
         manager.enqueue(request);
@@ -104,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.search_menu,menu);
+        inflater.inflate(R.menu.search_menu, menu);
 
         MenuItem searchItem = menu.findItem(R.id.search_icon);
         SearchView searchView = (SearchView) searchItem.getActionView();
@@ -116,17 +123,16 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                if(isOnlineFragmentOpen) {
-                    OnlineSuraFragment.adapter.getFilter().filter(newText);
-                }else {
-                    OfflineSuraFragment.adapter.getFilter().filter(newText);
-                }
+//                if (isOnlineFragmentOpen) {
+//                    OnlineSuraFragment.adapter.getFilter().filter(newText);
+//                } else {
+//                    OfflineSuraFragment.adapter.getFilter().filter(newText);
+//                }
                 return false;
             }
         });
         return true;
     }
-
 
 
 //    private void createFolder(Context context) {
